@@ -1,48 +1,72 @@
-.win{
-    color:blue;
+.all {
+    margin-top: 20px;
+    
+}
 
+.info{
+    color:yellow;
+}
+
+.win{
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    color:white;
+
+}
+
+.bg { 
+    background-image: url("../images/bg.jpg");
+background-size: cover;
 }
 
 .enemy{
-    background-color:purple;
-    height:200px;
-    width:200px;
+    
+    height:400px;
+    width:400px;
+    
 }
 
 .lose{
-    color:red;
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    color:white;
 }
 
 .charmander{
-    background-color: red;
+    
     height:200px;
     width:200px;
 
 }
 
 .squirtle{
-    background-color: blue;
+    
     height:200px;
     width:200px;
 
 }
 
 .enemyhealth{
-    font-size: 100px;
-    background-color: yellow;
-    height:200px;
-    width:200px;
+    text-align: center;
+    font-family: 'Rock Salt', cursive;
+    font-size: 50px;
+    color: yellow;
+    
 }
 
 .bulbasaur{
-    background-color: green;
+    
 }
 
 .value{
     font: bold;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 .header{
+    color: yellow;
+    font-size: 50px;
+    font-family: 'Black Ops One', cursive;
     text-align: center;
 
 }

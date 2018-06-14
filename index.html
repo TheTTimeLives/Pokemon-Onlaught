@@ -3,21 +3,25 @@
 
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Ceviche+One|Chewy|Covered+By+Your+Grace|Gloria+Hallelujah|Homemade+Apple|Kirang+Haerang|Permanent+Marker|Press+Start+2P|Rock+Salt|VT323" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
+    
 
-<body>
+
+<body class="bg">
     <style>
     </style>
 
 
-    <div class="container">
+    <div class="container all">
         <div class="row">
-            <div class="col-sm-1"></div>
-            <h1 class="col-sm-10 header"> Crystal Collector </h1>
+            <div class="col-sm-2"> </div>
+            <h1 class="col-sm-8 header"> POKEMON ONSLAUGHT </h1>
             <!-- Header -->
-            <div class="col-sm-1"></div>
+            <div class="col-sm-2"></div>
         </div>
         <div class="row">
             <div class="col-sm-4"></div>
@@ -53,6 +57,7 @@
         </div>
 
     </div>
+
 
     <!-- <button id="red"></button>
 <button id="blue"></button>
@@ -93,10 +98,13 @@
         var sum = 0;
         var wins = 0;
         var losses = 0;
-        $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
         enemysound.play();
         pokemontheme.loop = true;
         pokemontheme.play();
+        $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
+        $('.enemy').click(function (){
+            enemysound.play();
+        })
         console.log(enemyrandom);
 
 
@@ -121,6 +129,9 @@
             $(".win").html("WINS: " + wins);
             $(".lose").html("LOSSES: " + losses);
             $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
+            $('.enemy').click(function (){
+            enemysound.play();
+        })
             pokemontheme.loop = true;
             pokemontheme.play();
             console.log(enemyrandom);
@@ -136,18 +147,22 @@
             enemysound.play();
 
             if (bulbasaurxp >= 1){
+                ivysaursound.play();
                 bulbasaursound = new Audio('assets/sound/ivysaur.mp3');
             }
 
             if (bulbasaurxp >= 2){
+                venusaursound.play();
                 bulbasaursound = new Audio('assets/sound/venusaur.mp3');
             }
             
             if (charmanderxp >= 1){
+                charmeleonsound.play();
                 charmandersound = new Audio('assets/sound/charmeleon.mp3');
             }
 
             if (charmanderxp >= 2){
+                charizardsound.play();
                 charmandersound = new Audio('assets/sound/charizard.mp3');
             }
 
