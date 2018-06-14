@@ -66,8 +66,18 @@
     <script>
 
         var bulbasaursound = new Audio('assets/sound/bulbasaur.mp3');
+        var ivysaursound = new Audio('assets/sound/ivysaur.mp3');
+        var venusaursound = new Audio('assets/sound/venusaur.mp3');
+        var bulbasaurxp = 0;
         var charmandersound = new Audio('assets/sound/charmander.mp3');
+        var charizardsound = new Audio('assets/sound/charizard.mp3');
+        var charmeleonsound = new Audio('assets/sound/charmeleon.mp3');
+        var charmanderxp = 0;
         var squirtlesound = new Audio('assets/sound/squirtle.mp3');
+        var wartortlesound = new Audio('assets/sound/wartortle.mp3');
+        var blastoisesound = new Audio('assets/sound/blastoise.mp3');
+        var squirtlexp = 0;
+        var pokemontheme = new Audio('assets/sound/pokemontheme.mp3');
         var randomnumber = "";
         var redcrystal;
         var bluecrystal;
@@ -85,6 +95,8 @@
         var losses = 0;
         $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
         enemysound.play();
+        pokemontheme.loop = true;
+        pokemontheme.play();
         console.log(enemyrandom);
 
 
@@ -104,11 +116,13 @@
             greencrystalrandom = Math.floor(Math.random() * 12) + 1;
             yellowcrystalrandom = Math.floor(Math.random() * 12) + 1;
             sum = 0;
-
+            $('.value').off('click');
             $(".value").html("CLICK POKEMON FOR VALUES");
             $(".win").html("WINS: " + wins);
             $(".lose").html("LOSSES: " + losses);
             $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
+            pokemontheme.loop = true;
+            pokemontheme.play();
             console.log(enemyrandom);
 
             redcrystal = redcrystalrandom;
@@ -117,10 +131,37 @@
             console.log("squirtle: " + bluecrystal);
             greencrystal = greencrystalrandom;
             console.log("bulbasaur: " + greencrystal);
-            $(".enemyhealth").html(enemyhealth);
+            $(".enemyhealth").html("Lvl: " + enemyhealth);
             console.log("enemy: " + enemyhealth);
             enemysound.play();
 
+            if (bulbasaurxp >= 1){
+                bulbasaursound = new Audio('assets/sound/ivysaur.mp3');
+            }
+
+            if (bulbasaurxp >= 2){
+                bulbasaursound = new Audio('assets/sound/venusaur.mp3');
+            }
+            
+            if (charmanderxp >= 1){
+                charmandersound = new Audio('assets/sound/charmeleon.mp3');
+            }
+
+            if (charmanderxp >= 2){
+                charmandersound = new Audio('assets/sound/charizard.mp3');
+            }
+
+            if (squirtlexp >= 1){
+                squirtlesound = new Audio('assets/sound/wartortle.mp3');
+            }
+
+            if (squirtlexp >= 2){
+                squirtlesound = new Audio('assets/sound/blastoise.mp3');
+            }
+
+            
+
+            
 
         }
 
@@ -133,7 +174,7 @@
             greencrystal = greencrystalrandom;
             console.log("bulbasaur: " + greencrystal);
 
-            $(".enemyhealth").html(enemyhealth);
+            $(".enemyhealth").html("Lvl: " + enemyhealth);
             console.log("enemy: " + enemyhealth);
 
 
@@ -149,6 +190,7 @@
                 if (sum === enemyhealth) {
                     console.log("Win");
                     wins++;
+                    charmanderxp++;
 
                     $(".value").html("YOU WIN. PLAY AGAIN?");
 
@@ -168,7 +210,14 @@
                     })
                 }
 
+                
+            if (charmanderxp >= 1){
+                $(".charmander").attr('src', "assets/images/charmeleon.png");
+            }
 
+            if (charmanderxp >= 2){
+                $(".charmander").attr('src', "assets/images/charizard.png");
+            }
 
             })
 
@@ -180,6 +229,7 @@
 
                 if (sum === enemyhealth) {
                     console.log("Win");
+                    squirtlexp++;
                     wins++;
 
                     $(".value").html("YOU WIN. PLAY AGAIN?");
@@ -200,6 +250,15 @@
                     })
                 }
 
+                if (squirtlexp >= 1){
+                $(".squirtle").attr('src', "assets/images/wartortle.png");
+            }
+
+                if (squirtlexp >= 2){
+                $(".squirtle").attr('src', "assets/images/blastoise.png");
+            }
+
+                
 
 
             })
@@ -212,6 +271,7 @@
 
                 if (sum === enemyhealth) {
                     console.log("Win");
+                    bulbasaurxp++;
                     wins++;
 
                     $(".value").html("YOU WIN. PLAY AGAIN?");
@@ -231,6 +291,14 @@
                         reset();
                     })
                 }
+
+                if (bulbasaurxp >= 1){
+                $(".bulbasaur").attr('src', "assets/images/ivysaur.png");
+            }
+
+                if (bulbasaurxp >= 2){
+                $(".bulbasaur").attr('src', "assets/images/venusaur.png");
+            }
 
 
 
