@@ -1,0 +1,48 @@
+.win{
+    color:blue;
+
+}
+
+.enemy{
+    background-color:purple;
+    height:200px;
+    width:200px;
+}
+
+.lose{
+    color:red;
+}
+
+.charmander{
+    background-color: red;
+    height:200px;
+    width:200px;
+
+}
+
+.squirtle{
+    background-color: blue;
+    height:200px;
+    width:200px;
+
+}
+
+.enemyhealth{
+    font-size: 100px;
+    background-color: yellow;
+    height:200px;
+    width:200px;
+}
+
+.bulbasaur{
+    background-color: green;
+}
+
+.value{
+    font: bold;
+}
+
+.header{
+    text-align: center;
+
+}

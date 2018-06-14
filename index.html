@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+    <style>
+    </style>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <h1 class="col-sm-10 header"> Crystal Collector </h1>
+            <!-- Header -->
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <img class="col-sm-4 enemy"> </img>
+            <!-- Main score-->
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 enemyhealth"> </div>
+                <!-- Main score-->
+                <div class="col-sm-4"></div>
+            </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <img src="assets/images/bulbasaur.png" class="col-sm-2 bulbasaur"></img>
+            <!-- Bulbasaur -->
+            <img src="assets/images/charmander.png" class="col-sm-2 charmander"></img>
+            <!-- Charmander -->
+            <img src="assets/images/squirtle.png" class="col-sm-2 squirtle"></img>
+            <!-- Squirtle -->
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">1</div>
+            <div class="col-sm-2 win">WINS: 0</div>
+            <!-- Wins-->
+            <button class=" col-sm-4 value">"CLICK POKEMON FOR VALUES"</button>
+            <!-- Play again -->
+            <div class="col-sm-2 lose">LOSSES: 0</div>
+            <!-- Losses -->
+            <div class="col-sm-2">2</div>
+        </div>
+
+    </div>
+
+    <!-- <button id="red"></button>
+<button id="blue"></button>
+<button id="green"></button>
+<button id="yellow"></button> -->
+
+
+
+
+
+    <script>
+
+        var bulbasaursound = new Audio('assets/sound/bulbasaur.mp3');
+        var charmandersound = new Audio('assets/sound/charmander.mp3');
+        var squirtlesound = new Audio('assets/sound/squirtle.mp3');
+        var randomnumber = "";
+        var redcrystal;
+        var bluecrystal;
+        var greencrystal;
+        var yellowcrystal;
+        var enemyhealth = Math.floor(Math.random() * 102) + 20;
+        var enemyrandom = Math.floor(Math.random() * 75);
+        var enemysound = new Audio('assets/sound/enemy/' + enemyrandom + '.mp3')
+        var redcrystalrandom = Math.floor(Math.random() * 12) + 1;
+        var bluecrystalrandom = Math.floor(Math.random() * 12) + 1;
+        var greencrystalrandom = Math.floor(Math.random() * 12) + 1;
+        var yellowcrystalrandom = Math.floor(Math.random() * 12) + 1;
+        var sum = 0;
+        var wins = 0;
+        var losses = 0;
+        $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
+        enemysound.play();
+        console.log(enemyrandom);
+
+
+
+        var reset = function () {
+            randomnumber = "";
+            redcrystal;
+            bluecrystal;
+            greencrystal;
+            yellowcrystal;
+            enemy = Math.floor(Math.random() * 75);
+            enemyhealth = Math.floor(Math.random() * 102) + 20;
+            enemyrandom = Math.floor(Math.random() * 75);
+            enemysound = new Audio('assets/sound/enemy/' + enemyrandom + '.mp3')
+            redcrystalrandom = Math.floor(Math.random() * 12) + 1;
+            bluecrystalrandom = Math.floor(Math.random() * 12) + 1;
+            greencrystalrandom = Math.floor(Math.random() * 12) + 1;
+            yellowcrystalrandom = Math.floor(Math.random() * 12) + 1;
+            sum = 0;
+
+            $(".value").html("CLICK POKEMON FOR VALUES");
+            $(".win").html("WINS: " + wins);
+            $(".lose").html("LOSSES: " + losses);
+            $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
+            console.log(enemyrandom);
+
+            redcrystal = redcrystalrandom;
+            console.log("charmander: " + redcrystal);
+            bluecrystal = bluecrystalrandom;
+            console.log("squirtle: " + bluecrystal);
+            greencrystal = greencrystalrandom;
+            console.log("bulbasaur: " + greencrystal);
+            $(".enemyhealth").html(enemyhealth);
+            console.log("enemy: " + enemyhealth);
+            enemysound.play();
+
+
+        }
+
+        $(document).ready(function () {
+
+            redcrystal = redcrystalrandom;
+            console.log("charmander: " + redcrystal);
+            bluecrystal = bluecrystalrandom;
+            console.log("squirtle: " + bluecrystal);
+            greencrystal = greencrystalrandom;
+            console.log("bulbasaur: " + greencrystal);
+
+            $(".enemyhealth").html(enemyhealth);
+            console.log("enemy: " + enemyhealth);
+
+
+
+
+
+            $(".charmander").click(function () {
+                charmandersound.play();
+                sum = sum + redcrystal;
+                // sum += redcrystalrandom;
+                $(".value").html(sum);
+
+                if (sum === enemyhealth) {
+                    console.log("Win");
+                    wins++;
+
+                    $(".value").html("YOU WIN. PLAY AGAIN?");
+
+                    $(".value").click(function () {
+                        reset();
+                    })
+                }
+
+                if (sum > enemyhealth) {
+                    console.log("Lose");
+                    losses++;
+
+                    $(".value").html("YOU LOSE. PLAY AGAIN?");
+
+                    $(".value").click(function () {
+                        reset();
+                    })
+                }
+
+
+
+            })
+
+            $(".squirtle").click(function () {
+                squirtlesound.play();
+                sum = sum + bluecrystal;
+                // sum += redcrystalrandom;
+                $(".value").html(sum);
+
+                if (sum === enemyhealth) {
+                    console.log("Win");
+                    wins++;
+
+                    $(".value").html("YOU WIN. PLAY AGAIN?");
+
+                    $(".value").click(function () {
+                        reset();
+                    })
+                }
+
+                if (sum > enemyhealth) {
+                    console.log("Lose");
+                    losses++;
+
+                    $(".value").html("YOU LOSE. PLAY AGAIN?");
+
+                    $(".value").click(function () {
+                        reset();
+                    })
+                }
+
+
+
+            })
+
+            $(".bulbasaur").click(function () {
+                bulbasaursound.play();
+                sum = sum + greencrystal;
+                // sum += redcrystalrandom;
+                $(".value").html(sum);
+
+                if (sum === enemyhealth) {
+                    console.log("Win");
+                    wins++;
+
+                    $(".value").html("YOU WIN. PLAY AGAIN?");
+
+                    $(".value").click(function () {
+                        reset();
+                    })
+                }
+
+                if (sum > enemyhealth) {
+                    console.log("Lose");
+                    losses++;
+
+                    $(".value").html("YOU LOSE. PLAY AGAIN?");
+
+                    $(".value").click(function () {
+                        reset();
+                    })
+                }
+
+
+
+            })
+
+
+
+
+
+
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>
