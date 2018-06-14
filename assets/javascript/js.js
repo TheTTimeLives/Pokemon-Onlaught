@@ -1,85 +1,14 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-        crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Ceviche+One|Chewy|Covered+By+Your+Grace|Gloria+Hallelujah|Homemade+Apple|Kirang+Haerang|Permanent+Marker|Press+Start+2P|Rock+Salt|VT323"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-</head>
-
-
-
-<body class="bg">
-    <style>
-    </style>
-
-
-    <div class="container all">
-        <div class="row">
-            <div class="col-sm-2"> </div>
-            <h1 class="col-sm-8 header"> POKEMON ONSLAUGHT </h1>
-            <!-- Header -->
-            <div class="col-sm-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 info"> "Use your pokemon to DEFEND against the onslaught of wild pokemon attacking from the forest! COMBINE ATTACK POWER
-                to create a number equal to the enemy's level! Creating a number too high will make your pokemon take damage!
-                EVOLVE YOUR POKEMON to survive!"</div>
-            <img class="col-sm-4 enemy"> </img>
-            <!-- Main score-->
-            <div class="col-sm-4"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4"> </div>
-            <div class="col-sm-4 enemyhealth"> </div>
-            <!-- Main score-->
-            <div class="col-sm-4"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <img src="assets/images/bulbasaur.png" class="col-sm-2 bulbasaur"></img>
-            <!-- Bulbasaur -->
-            <img src="assets/images/charmander.png" class="col-sm-2 charmander"></img>
-            <!-- Charmander -->
-            <img src="assets/images/squirtle.png" class="col-sm-2 squirtle"></img>
-            <!-- Squirtle -->
-            <div class="col-sm-3"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2">1</div>
-            <div class="col-sm-2 win">WINS: 0</div>
-            <!-- Wins-->
-            <button class=" col-sm-4 value">"CLICK POKEMON FOR VALUES"</button>
-            <!-- Play again -->
-            <div class="col-sm-2 lose">LOSSES: 0</div>
-            <!-- Losses -->
-            <div class="col-sm-2">2</div>
-        </div>
-
-    </div>
-
-
-
-
-
-    <script>
-
-        var bulbasaursound = new Audio('assets/sound/bulbasaur.mp3');
-        var ivysaursound = new Audio('assets/sound/ivysaur.mp3');
-        var venusaursound = new Audio('assets/sound/venusaur.mp3');
+var bulbasaursound = new Audio('assets/sound/bulbasaur.mp3');
+        var ivysaursound = new Audio('../assets/sound/ivysaur.mp3');
+        var venusaursound = new Audio('../assets/sound/venusaur.mp3');
         var bulbasaurxp = 0;
-        var charmandersound = new Audio('assets/sound/charmander.mp3');
-        var charizardsound = new Audio('assets/sound/charizard.mp3');
-        var charmeleonsound = new Audio('assets/sound/charmeleon.mp3');
+        var charmandersound = new Audio('../assets/sound/charmander.mp3');
+        var charizardsound = new Audio('../assets/sound/charizard.mp3');
+        var charmeleonsound = new Audio('../assets/sound/charmeleon.mp3');
         var charmanderxp = 0;
-        var squirtlesound = new Audio('assets/sound/squirtle.mp3');
-        var wartortlesound = new Audio('assets/sound/wartortle.mp3');
-        var blastoisesound = new Audio('assets/sound/blastoise.mp3');
+        var squirtlesound = new Audio('../assets/sound/squirtle.mp3');
+        var wartortlesound = new Audio('../assets/sound/wartortle.mp3');
+        var blastoisesound = new Audio('../assets/sound/blastoise.mp3');
         var squirtlexp = 0;
         var pokemontheme = new Audio('assets/sound/pokemontheme.mp3');
         var randomnumber = "";
@@ -89,7 +18,7 @@
         var yellowcrystal;
         var enemyhealth = Math.floor(Math.random() * 101) + 1;
         var enemyrandom = Math.floor(Math.random() * 75);
-        var enemysound = new Audio('assets/sound/enemy/' + enemyrandom + '.mp3')
+        var enemysound = new Audio('../assets/sound/enemy/' + enemyrandom + '.mp3')
         var redcrystalrandom = Math.floor(Math.random() * 12) + 1;
         var bluecrystalrandom = Math.floor(Math.random() * 12) + 1;
         var greencrystalrandom = Math.floor(Math.random() * 12) + 1;
@@ -100,7 +29,7 @@
         enemysound.play();
         pokemontheme.loop = true;
         pokemontheme.play();
-        $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
+        $('.enemy').attr('src', '../assets/images/enemy/' + enemyrandom + '.png');
         $('.enemy').click(function () {
             enemysound.play();
         })
@@ -117,7 +46,7 @@
             enemy = Math.floor(Math.random() * 75);
             enemyhealth = Math.floor(Math.random() * 101) + 20;
             enemyrandom = Math.floor(Math.random() * 75);
-            enemysound = new Audio('assets/sound/enemy/' + enemyrandom + '.mp3')
+            enemysound = new Audio('../assets/sound/enemy/' + enemyrandom + '.mp3')
             redcrystalrandom = Math.floor(Math.random() * 12) + 1;
             bluecrystalrandom = Math.floor(Math.random() * 12) + 1;
             greencrystalrandom = Math.floor(Math.random() * 12) + 1;
@@ -147,30 +76,30 @@
 
             if (bulbasaurxp >= 1) {
                 ivysaursound.play();
-                bulbasaursound = new Audio('assets/sound/ivysaur.mp3');
+                bulbasaursound = new Audio('../assets/sound/ivysaur.mp3');
             }
 
             if (bulbasaurxp >= 2) {
                 venusaursound.play();
-                bulbasaursound = new Audio('assets/sound/venusaur.mp3');
+                bulbasaursound = new Audio('../assets/sound/venusaur.mp3');
             }
 
             if (charmanderxp >= 1) {
                 charmeleonsound.play();
-                charmandersound = new Audio('assets/sound/charmeleon.mp3');
+                charmandersound = new Audio('../assets/sound/charmeleon.mp3');
             }
 
             if (charmanderxp >= 2) {
                 charizardsound.play();
-                charmandersound = new Audio('assets/sound/charizard.mp3');
+                charmandersound = new Audio('../assets/sound/charizard.mp3');
             }
 
             if (squirtlexp >= 1) {
-                squirtlesound = new Audio('assets/sound/wartortle.mp3');
+                squirtlesound = new Audio('../assets/sound/wartortle.mp3');
             }
 
             if (squirtlexp >= 2) {
-                squirtlesound = new Audio('assets/sound/blastoise.mp3');
+                squirtlesound = new Audio('../assets/sound/blastoise.mp3');
             }
 
 
@@ -229,11 +158,11 @@
 
 
                 if (charmanderxp >= 1) {
-                    $(".charmander").attr('src', "assets/images/charmeleon.png");
+                    $(".charmander").attr('src', "../assets/images/charmeleon.png");
                 }
 
                 if (charmanderxp >= 2) {
-                    $(".charmander").attr('src', "assets/images/charizard.png");
+                    $(".charmander").attr('src', "../assets/images/charizard.png");
                 }
 
             })
@@ -271,11 +200,11 @@
                 }
 
                 if (squirtlexp >= 1) {
-                    $(".squirtle").attr('src', "assets/images/wartortle.png");
+                    $(".squirtle").attr('src', "../assets/images/wartortle.png");
                 }
 
                 if (squirtlexp >= 2) {
-                    $(".squirtle").attr('src', "assets/images/blastoise.png");
+                    $(".squirtle").attr('src', "../assets/images/blastoise.png");
                 }
 
 
@@ -316,11 +245,11 @@
                 }
 
                 if (bulbasaurxp >= 1) {
-                    $(".bulbasaur").attr('src', "assets/images/ivysaur.png");
+                    $(".bulbasaur").attr('src', "../assets/images/ivysaur.png");
                 }
 
                 if (bulbasaurxp >= 2) {
-                    $(".bulbasaur").attr('src', "assets/images/venusaur.png");
+                    $(".bulbasaur").attr('src', "../assets/images/venusaur.png");
                 }
 
 
@@ -335,9 +264,4 @@
 
 
         });
-    </script>
-
-
-</body>
-
-</html>
+  
