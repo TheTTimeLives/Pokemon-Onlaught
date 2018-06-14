@@ -3,12 +3,14 @@
 
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Ceviche+One|Chewy|Covered+By+Your+Grace|Gloria+Hallelujah|Homemade+Apple|Kirang+Haerang|Permanent+Marker|Press+Start+2P|Rock+Salt|VT323" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Ceviche+One|Chewy|Covered+By+Your+Grace|Gloria+Hallelujah|Homemade+Apple|Kirang+Haerang|Permanent+Marker|Press+Start+2P|Rock+Salt|VT323"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
-    
+
 
 
 <body class="bg">
@@ -24,17 +26,19 @@
             <div class="col-sm-2"></div>
         </div>
         <div class="row">
-            <div class="col-sm-4"></div>
+            <div class="col-sm-4 info"> "Use your pokemon to DEFEND against the onslaught of wild pokemon attacking from the forest! COMBINE ATTACK POWER
+                to create a number equal to the enemy's level! Creating a number too high will make your pokemon take damage!
+                EVOLVE YOUR POKEMON to survive!"</div>
             <img class="col-sm-4 enemy"> </img>
             <!-- Main score-->
             <div class="col-sm-4"></div>
         </div>
         <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4 enemyhealth"> </div>
-                <!-- Main score-->
-                <div class="col-sm-4"></div>
-            </div>
+            <div class="col-sm-4"> </div>
+            <div class="col-sm-4 enemyhealth"> </div>
+            <!-- Main score-->
+            <div class="col-sm-4"></div>
+        </div>
         <div class="row">
             <div class="col-sm-3"></div>
             <img src="assets/images/bulbasaur.png" class="col-sm-2 bulbasaur"></img>
@@ -88,7 +92,7 @@
         var bluecrystal;
         var greencrystal;
         var yellowcrystal;
-        var enemyhealth = Math.floor(Math.random() * 102) + 20;
+        var enemyhealth = Math.floor(Math.random() * 101) + 20;
         var enemyrandom = Math.floor(Math.random() * 75);
         var enemysound = new Audio('assets/sound/enemy/' + enemyrandom + '.mp3')
         var redcrystalrandom = Math.floor(Math.random() * 12) + 1;
@@ -102,7 +106,7 @@
         pokemontheme.loop = true;
         pokemontheme.play();
         $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
-        $('.enemy').click(function (){
+        $('.enemy').click(function () {
             enemysound.play();
         })
         console.log(enemyrandom);
@@ -116,7 +120,7 @@
             greencrystal;
             yellowcrystal;
             enemy = Math.floor(Math.random() * 75);
-            enemyhealth = Math.floor(Math.random() * 102) + 20;
+            enemyhealth = Math.floor(Math.random() * 101) + 20;
             enemyrandom = Math.floor(Math.random() * 75);
             enemysound = new Audio('assets/sound/enemy/' + enemyrandom + '.mp3')
             redcrystalrandom = Math.floor(Math.random() * 12) + 1;
@@ -129,9 +133,9 @@
             $(".win").html("WINS: " + wins);
             $(".lose").html("LOSSES: " + losses);
             $('.enemy').attr('src', 'assets/images/enemy/' + enemyrandom + '.png');
-            $('.enemy').click(function (){
-            enemysound.play();
-        })
+            $('.enemy').click(function () {
+                enemysound.play();
+            })
             pokemontheme.loop = true;
             pokemontheme.play();
             console.log(enemyrandom);
@@ -146,37 +150,37 @@
             console.log("enemy: " + enemyhealth);
             enemysound.play();
 
-            if (bulbasaurxp >= 1){
+            if (bulbasaurxp >= 1) {
                 ivysaursound.play();
                 bulbasaursound = new Audio('assets/sound/ivysaur.mp3');
             }
 
-            if (bulbasaurxp >= 2){
+            if (bulbasaurxp >= 2) {
                 venusaursound.play();
                 bulbasaursound = new Audio('assets/sound/venusaur.mp3');
             }
-            
-            if (charmanderxp >= 1){
+
+            if (charmanderxp >= 1) {
                 charmeleonsound.play();
                 charmandersound = new Audio('assets/sound/charmeleon.mp3');
             }
 
-            if (charmanderxp >= 2){
+            if (charmanderxp >= 2) {
                 charizardsound.play();
                 charmandersound = new Audio('assets/sound/charizard.mp3');
             }
 
-            if (squirtlexp >= 1){
+            if (squirtlexp >= 1) {
                 squirtlesound = new Audio('assets/sound/wartortle.mp3');
             }
 
-            if (squirtlexp >= 2){
+            if (squirtlexp >= 2) {
                 squirtlesound = new Audio('assets/sound/blastoise.mp3');
             }
 
-            
 
-            
+
+
 
         }
 
@@ -197,6 +201,9 @@
 
 
             $(".charmander").click(function () {
+                $(".info").fadeTo("slow", 0, function () {
+                    // Animation complete.
+                });
                 charmandersound.play();
                 sum = sum + redcrystal;
                 // sum += redcrystalrandom;
@@ -225,18 +232,21 @@
                     })
                 }
 
-                
-            if (charmanderxp >= 1){
-                $(".charmander").attr('src', "assets/images/charmeleon.png");
-            }
 
-            if (charmanderxp >= 2){
-                $(".charmander").attr('src', "assets/images/charizard.png");
-            }
+                if (charmanderxp >= 1) {
+                    $(".charmander").attr('src', "assets/images/charmeleon.png");
+                }
+
+                if (charmanderxp >= 2) {
+                    $(".charmander").attr('src', "assets/images/charizard.png");
+                }
 
             })
 
             $(".squirtle").click(function () {
+                $(".info").fadeTo("slow", 0, function () {
+                    // Animation complete.
+                });
                 squirtlesound.play();
                 sum = sum + bluecrystal;
                 // sum += redcrystalrandom;
@@ -265,20 +275,23 @@
                     })
                 }
 
-                if (squirtlexp >= 1){
-                $(".squirtle").attr('src', "assets/images/wartortle.png");
-            }
+                if (squirtlexp >= 1) {
+                    $(".squirtle").attr('src', "assets/images/wartortle.png");
+                }
 
-                if (squirtlexp >= 2){
-                $(".squirtle").attr('src', "assets/images/blastoise.png");
-            }
+                if (squirtlexp >= 2) {
+                    $(".squirtle").attr('src', "assets/images/blastoise.png");
+                }
 
-                
+
 
 
             })
 
             $(".bulbasaur").click(function () {
+                $(".info").fadeTo("slow", 0, function () {
+                    // Animation complete.
+                });
                 bulbasaursound.play();
                 sum = sum + greencrystal;
                 // sum += redcrystalrandom;
@@ -307,13 +320,13 @@
                     })
                 }
 
-                if (bulbasaurxp >= 1){
-                $(".bulbasaur").attr('src', "assets/images/ivysaur.png");
-            }
+                if (bulbasaurxp >= 1) {
+                    $(".bulbasaur").attr('src', "assets/images/ivysaur.png");
+                }
 
-                if (bulbasaurxp >= 2){
-                $(".bulbasaur").attr('src', "assets/images/venusaur.png");
-            }
+                if (bulbasaurxp >= 2) {
+                    $(".bulbasaur").attr('src', "assets/images/venusaur.png");
+                }
 
 
 
